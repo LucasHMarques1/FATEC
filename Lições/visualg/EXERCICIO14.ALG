@@ -5,11 +5,23 @@ Algoritmo "EXERCICIO14"
 // algoritmo deve imprimir mensagem de permissão ou negação de acesso.
 
 Var
-// Seção de Declarações das variáveis 
-
+   senha_digitada : caractere
 
 Inicio
-// Seção de Comandos, procedimento, funções, operadores, etc... 
-
+   ESCREVA("Digite sua senha: ")
+   LEIA(senha_digitada)
+   ENQUANTO (senha_digitada <> "fatecbt") FACA
+      ESCREVAL("Acesso Negado! Digite sua senha corretamente! ")
+      ESCREVA("Digite sua senha: ")
+      LEIA(senha_digitada)
+   FIMENQUANTO
+   ESCREVAL("Acesso Aprovado!")
 
 Fimalgoritmo
+
+// TESTE DE MESA
+// senha_digitada = etecbt
+
+// TELA
+//  Digite sua senha: etecbt
+//  Acesso Negado!
