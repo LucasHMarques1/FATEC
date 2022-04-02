@@ -3,29 +3,35 @@ Algoritmo "EXERCICIO25"
 // 25) Escreva um algoritmo que leia três números e exiba-os em ordem crescente.
 
 Var
-   num1, num2, num3, ordem_crescente: inteiro
+   num1, num2, num3, maior, meio, menor: inteiro;
 
 Inicio
    ESCREVAL("Digite um número: ")
    LEIA(num1)
    ESCREVAL("Digite um número: ")
    LEIA(num2)
+   SE (num1 > num2) ENTÃO
+      maior <- num1
+      menor <- num2
+   SENAO
+      maior <- num2
+      menor <- num1
+   FIMSE
    ESCREVAL("Digite um número: ")
    LEIA(num3)
-
-   ESCREVA("ORDEM CRESCENTE: ")
-   SE (num1 = num2) E (num1 = num3) ENTAO
-      ESCREVAL(num1, num2, num3)
-   SENAO
-      SE(num1 >= num2) E (num1 >= 3) ENTAO
-         ESCREVA(num1)
-         SE (num2 > num3) ENTAO
-            ESCREVA(num2, num3)
-         SENAO
-            ESCREVA(num3, num2)
-         FIMSE
+   SE (num3 > maior) ENTÃO
+      meio <- maior
+      maior <- num3
+   SENÃO
+      SE (num3 < menor) ENTAO
+         meio <- menor
+         menor <- num3
+      SENÃO
+         meio <- num3
       FIMSE
    FIMSE
+
+   ESCREVA("ORDEM CRESCENTE: ", menor," , ",meio," , ",maior)
 
 Fimalgoritmo
 
