@@ -16,28 +16,27 @@ nota: char;
 Begin
   Write('Digite sua idade: ');
   Read(idade);
-  Write('Deixe sua avaliação de A(MUITO BOM) até E(PÉSSIMO): ');
+  Write('Digite a nota entre A(MUITO BOM) até E(MUITO RUIM): ');
   Read(nota);
-  
-  Case nota of
-    'A':  Begin
-      Writeln('NOTA ESCOLHIDA: ÓTIMO');
+  Case nota Of
+    'A' : Begin
+      Writeln('Nota Final: ÓTIMO');
     End;
-    'B': Begin
-      Writeln('NOTA ESCOLHIDA: BOM');
+    
+    'B' : Begin
+      Writeln('Nota Final: BOM');
     End;
-    'C': Begin
-      Writeln('NOTA ESCOLHIDA: REGULAR');
+    
+    'C' : Begin
+      Writeln('Nota Final: REGULAR');
     End;
-    'D': Begin
-      Writeln('NOTA ESCOLHIDA: RUIM');
+    
+    'D' : Begin
+      Writeln('Nota Final: RUIM');
     End;
-    'E': Begin
-      Writeln('NOTA ESCOLHIDA: PÉSSIMO');
-    End;
-    Else
-    Begin
-      Writeln('VOTO INVÁLIDO');
+    
+    'E' : Begin
+      Writeln('Nota Final: PÉSSIMO');
     End;
   End;
 End.
