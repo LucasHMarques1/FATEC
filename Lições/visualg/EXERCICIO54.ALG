@@ -5,32 +5,27 @@ Algoritmo "EXERCICIO54"
 // subtração, multiplicação e divisão. Cada ação deve ser executada a partir de uma função.
 
 Var
-   num1, num2, operacao, aux, res: inteiro
-   aux1: real
+   num1, num2, operacao: inteiro
+   res: real
 
-funcao adicao(n1,n2:inteiro): inteiro
+funcao adicao(n1,n2:inteiro): real
 inicio
-   aux <- n1 + n2
-   retorne aux
+   retorne n1 + n2
 fimfuncao
 
-funcao subtracao(n1,n2:inteiro): inteiro
+funcao subtracao(n1,n2:inteiro): real
 inicio
-   aux <- n1 - n2
-   retorne aux
+   retorne n1 - n2
 fimfuncao
 
-funcao multiplicacao(n1,n2:inteiro): inteiro
+funcao multiplicacao(n1,n2:inteiro): real
 inicio
-   aux <- n1 * n2
-   retorne aux
+   retorne n1 * n2
 fimfuncao
 
-funcao divisao(n1,n2:inteiro): inteiro
+funcao divisao(n1,n2:inteiro): real
 inicio
-   aux1 <- n1 / n2
-   aux <- Int(aux1)
-   retorne aux
+   retorne n1 / n2
 fimfuncao
 
 Inicio
