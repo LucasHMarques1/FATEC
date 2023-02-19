@@ -6,11 +6,11 @@ Algoritmo "Ex1_Registros(2)"
 // exibir um relatório com os dados de todos os conttos que residam em Botucatu
 
 Tipo
-agenda = registro
-           nome: caractere
-           telefone: inteiro
-           cidade: caractere
-         fimregistro
+   agenda = registro
+      nome: caractere
+      telefone: inteiro
+      cidade: caractere
+   fimregistro
 
 Var
    i: inteiro
@@ -19,23 +19,23 @@ Var
 
 Inicio
    para i de 1 até 5 faça
-     escreva("Digite seu nome: ")
-     leia(agenda_vetor[i].nome)
-     escreva("Digite seu telefone: ")
-     leia(agenda_vetor[i].telefone)
-     escreva("Digite sua cidade: ")
-     leia(agenda_vetor[i].cidade)
-     se (agenda_vetor[i].cidade = "Botucatu") então
-       telefones[i] := agenda_vetor[i].telefone
+      escreva("Digite seu nome: ")
+      leia(agenda_vetor[i].nome)
+      escreva("Digite seu telefone: ")
+      leia(agenda_vetor[i].telefone)
+      escreva("Digite sua cidade: ")
+      leia(agenda_vetor[i].cidade)
+      se (agenda_vetor[i].cidade = "Botucatu") então
+         telefones[i] := agenda_vetor[i].telefone
 
-     fimse
+      fimse
    fimpara
 
    escreva("Telefones: ")
    para i de 1 até 5 faça
-     se (agenda_vetor[i].cidade = "Botucatu") então
-       escreva(", ", telefones[i])
-     fimse
+      se (agenda_vetor[i].cidade = "Botucatu") então
+         escreva(", ", telefones[i])
+      fimse
    fimpara
 
 Fimalgoritmo

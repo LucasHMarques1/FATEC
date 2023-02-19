@@ -5,11 +5,11 @@ Algoritmo "Teste"
 // de todos os contatos que residem em Botucatu.
 
 tipo
- dados_pessoal = registro
+   dados_pessoal = registro
       nome: caractere
       telefone: inteiro
       cidade: caractere
-                 fimregistro
+   fimregistro
 Var
    i: inteiro;
    dados_pessoais: vetor[0..4] de dados_pessoal
@@ -23,7 +23,7 @@ Inicio
       Escreval("Digite seu cidade: ")
       Leia(dados_pessoais[i].cidade)
    fimpara
-   
+
    para i de 0 ate 3 faca
       Escreva(dados_pessoais[i].nome)
       Escreva(dados_pessoais[i].telefone)
