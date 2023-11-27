@@ -30,7 +30,7 @@ public class FilmeLista extends javax.swing.JFrame {
         dtFilme.getColumnModel().getColumn(0).setMinWidth(0);
         dtFilme.getColumnModel().getColumn(0).setMaxWidth(0);
         dtFilme.getColumnModel().getColumn(0).setWidth(0);
-        
+
         dtFilme.getColumnModel().getColumn(1).setMinWidth(400);
         dtFilme.getColumnModel().getColumn(3).setMinWidth(20);
     }
@@ -186,6 +186,9 @@ public class FilmeLista extends javax.swing.JFrame {
     public void loadForm() {
         this.loadServices();
 
+        this.cbxGenero.removeAllItems();
+        this.cbxGenero.addItem("Selecione um genero");
+
         for (Genero genero : this.generos) {
             this.cbxGenero.addItem(genero.getDescricao());
         }
@@ -196,7 +199,9 @@ public class FilmeLista extends javax.swing.JFrame {
     private void btnPesquisarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPesquisarActionPerformed
         String titulo = this.txtNome.getText() != null ? this.txtNome.getText() : null;
 
-        Long generoId = this.cbxGenero.getSelectedIndex() > 0 ? Long.getLong(String.valueOf(this.cbxGenero.getSelectedIndex())) : null;
+        int indiceGeneroFiltroSelecionado = this.cbxGenero.getSelectedIndex();
+
+        Long generoId = indiceGeneroFiltroSelecionado > 0 ? this.generos.get(indiceGeneroFiltroSelecionado - 1).getId() : null;
 
         this.filmes = this.filmeService.getAll(titulo, generoId);
 

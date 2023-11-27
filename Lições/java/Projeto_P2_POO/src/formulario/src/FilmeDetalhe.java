@@ -13,7 +13,7 @@ public class FilmeDetalhe extends javax.swing.JDialog {
     private final FilmeService filmeService;
     private final GeneroService generoService;
     private Filme filme;
-    private List<Genero> generos = new ArrayList<>();
+    private List<Genero> generos;
     private boolean novoFilme;
 
     private final FilmeLista filmeList;
@@ -110,7 +110,6 @@ public class FilmeDetalhe extends javax.swing.JDialog {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(cbxGenero, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnNovoGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnEditarGenero, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -171,9 +170,12 @@ public class FilmeDetalhe extends javax.swing.JDialog {
 
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
 
+        int indiceGenero = this.cbxGenero.getSelectedIndex() - 1;
+        Genero generoSelect = (Genero) this.generos.get(indiceGenero);
+
         if (this.formValid()) {
             this.filme.setTitulo(this.txtTitulo.getText());
-            this.filme.setGenero(this.generos.get(this.cbxGenero.getSelectedIndex() - 1));
+            this.filme.setGenero(generoSelect);
             this.filme.setAno(this.txtAno.getText());
             this.filme.setDiretor(this.txtDiretor.getText());
             this.filme.setPais(this.cbxPais.getSelectedItem().toString());
@@ -202,10 +204,10 @@ public class FilmeDetalhe extends javax.swing.JDialog {
     }//GEN-LAST:event_btnNovoGeneroActionPerformed
 
     private void btnEditarGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarGeneroActionPerformed
-        var genero = (Genero) this.generos.get(this.cbxGenero.getSelectedIndex() - 1);
+        var generoSelecionado = (Genero) this.generos.get(this.cbxGenero.getSelectedIndex() - 1);
 
-        if (genero.getId() != null) {
-            new GeneroDetalhe(this, true, genero).setVisible(true);
+        if (generoSelecionado.getId() != null) {
+            new GeneroDetalhe(this, true, generoSelecionado).setVisible(true);
         }
     }//GEN-LAST:event_btnEditarGeneroActionPerformed
 
@@ -249,7 +251,11 @@ public class FilmeDetalhe extends javax.swing.JDialog {
 
     public void loadDados() {
 
+        this.generos = new ArrayList<>();
         this.generos = this.generoService.getAll();
+        
+        this.cbxGenero.removeAllItems();
+        this.cbxGenero.addItem("Selecione um genero");
 
         for (Genero genero : this.generos) {
             this.cbxGenero.addItem(genero.getDescricao());

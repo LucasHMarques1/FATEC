@@ -18,7 +18,7 @@ public class Conexao {
         }
         
         try {
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/trabalhoPoo", "root", "Teste@123");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/trabalhoPoo", "root", "root");
         } catch (SQLException ex) {
             Logger.getLogger(Conexao.class.getName()).log(Level.SEVERE, null, ex);
         }
