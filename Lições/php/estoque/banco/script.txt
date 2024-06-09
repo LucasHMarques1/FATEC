@@ -1,0 +1,50 @@
+-- Criando o banco de dados
+CREATE DATABASE IF NOT EXISTS estoque;
+
+
+-- Selecionando o banco de dados
+USE estoque;
+
+
+-- Tabela de Usuários
+CREATE TABLE usuario (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100),
+    nome_usuario VARCHAR(50) UNIQUE,
+    senha VARCHAR(100),
+    lembrete_senha VARCHAR(255)
+);
+
+
+-- Tabela de Produtos
+CREATE TABLE produto (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100),
+    quantidade INT,
+    preco VARCHAR(20),
+    id_usuario INT,
+    FOREIGN KEY (id_usuario) REFERENCES usuario(id)
+);
+
+
+-- Inserir cinco usuários
+INSERT INTO usuario (nome, nome_usuario, senha, lembrete_senha) VALUES
+('Lucas Marques', 'lucas.marques', '12345', 'Lembrete de senha 1'),
+('Cesar', 'cesar.professor', '12345', 'Lembrete de senha 2'),
+('Jadson Ribeiro', 'jadson.ribeiro', '12345', 'Lembrete de senha 3'),
+('Fatec Teste', 'fatec.teste', '12345', 'Lembrete de senha 4');
+
+
+-- Inserir 10 produtos aleatórios
+INSERT INTO produto (nome, quantidade, preco, id_usuario) VALUES
+('Camisa Polo', 20, 'R$ 39,99', 1),
+('Calça Jeans', 15, 'R$ 49,99', 1),
+('Tênis Esportivo', 30, 'R$ 79,99', 4),
+('Relógio de Pulso', 10, 'R$ 99,99', 2),
+('Mochila Escolar', 25, 'R$ 29,99', 3),
+('Óculos de Sol', 20, 'R$ 19,99', 3),
+('Bolsa Feminina', 15, 'R$ 39,99', 2),
+('Chapéu de Palha', 10, 'R$ 14,99', 4),
+('Cinto de Couro', 30, 'R$ 24,99', 4),
+('Boné Estiloso', 25, 'R$ 9,99', 4);
+

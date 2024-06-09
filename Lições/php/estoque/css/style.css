@@ -1,0 +1,11 @@
+/* Estoque.php */
+#header a {
+    font-size: 1.4rem !important;
+    color: #333 !important;
+}
+
+/* Footer */
+#footer {
+    bottom: 0;
+    width: 100%;
+}
